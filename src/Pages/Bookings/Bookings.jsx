@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import BookingRow from "./BookingRow";
-import { useLinkClickHandler } from "react-router-dom";
 import axios from "axios";
 
 
@@ -51,7 +50,7 @@ const Bookings = () => {
     .then(data => {
       console.log(data);
       if(data.modifiedCount > 0){
-        // updata status 
+      
         const remaining = bookings.filter(booking => booking._id !== id);
         const updated = bookings.find(booking => booking._id === id);
         updated.status = 'confirm'
